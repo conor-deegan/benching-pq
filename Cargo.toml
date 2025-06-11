@@ -1,0 +1,21 @@
+[package]
+name = "benching-pq"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+ml-dsa = "0.0.4"
+rand = "0.9.1"
+rand_core = { version = "0.6.4", features = ["getrandom"] }
+slh-dsa = "0.0.3"
+
+[[bench]]
+name = "ml_dsa_bench"
+harness = false
+
+[[bench]]
+name = "slh_dsa_bench"
+harness = false
+
+[dev-dependencies]
+criterion = "0.5"
