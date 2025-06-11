@@ -57,6 +57,53 @@
 | SHA2-256f | Signing | 96.998 ms |
 | SHA2-256f | Verification | 2.5678 ms |
 
+### Grouped by OP
+
+#### Key Generation
+
+| Variant | Time (mean) |
+|---------|-------------|
+| ECDSA | 29.822 µs |
+| ML-DSA-44 | 120.33 µs |
+| ML-DSA-65 | 216.66 µs |
+| ML-DSA-87 | 322.89 µs |
+| SHA2-128s | 78.857 ms |
+| SHA2-128f | 1.2359 ms |
+| SHA2-192s | 114.68 ms |
+| SHA2-192f | 1.7356 ms |
+| SHA2-256s | 73.360 ms |
+| SHA2-256f | 4.6854 ms |
+
+#### Signing
+
+| Variant | Time (mean) |
+|---------|-------------|
+| ECDSA | 30.490 µs |
+| ML-DSA-44 | 446.58 µs |
+| ML-DSA-65 | 258.54 µs |
+| ML-DSA-87 | 450.90 µs |
+| SHA2-128s | 601.07 ms |
+| SHA2-128f | 28.583 ms |
+| SHA2-192s | 1.0399 s |
+| SHA2-192f | 45.729 ms |
+| SHA2-256s | 1.2020 s |
+| SHA2-256f | 96.998 ms |
+
+#### Verification
+
+| Variant | Time (mean) |
+|---------|-------------|
+| ECDSA | 49.811 µs |
+| ML-DSA-44 | 23.071 µs |
+| ML-DSA-65 | 33.080 µs |
+| ML-DSA-87 | 48.162 µs |
+| SHA2-128s | 585.83 µs |
+| SHA2-128f | 1.7090 ms |
+| SHA2-192s | 860.23 µs |
+| SHA2-192f | 2.3920 ms |
+| SHA2-256s | 1.2094 ms |
+| SHA2-256f | 2.5678 ms |
+
 ### Summary
 
 1. **ML-DSA Performance**:
