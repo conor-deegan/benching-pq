@@ -49,7 +49,7 @@
 | SHA2-256f | Signing | 96.998 ms |
 | SHA2-256f | Verification | 2.5678 ms |
 
-### Key Observations
+### Summary
 
 1. **ML-DSA Performance**:
    - All ML-DSA variants show consistent performance across operations
