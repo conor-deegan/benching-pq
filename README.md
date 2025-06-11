@@ -12,6 +12,14 @@
 
 ## Benchmark Results
 
+### ECDSA - secp256k1 (K-256) (Baseline)
+
+| Variant | Operation | Time (mean) |
+|---------|-----------|-------------|
+| ECDSA | Key Generation | 29.822 µs |
+| ECDSA | Signing | 30.490 µs |
+| ECDSA | Verification | 49.811 µs |
+
 ### ML-DSA Variants
 
 | Variant | Operation | Time (mean) |

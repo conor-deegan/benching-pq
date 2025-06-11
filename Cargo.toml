@@ -8,6 +8,8 @@ ml-dsa = "0.0.4"
 rand = "0.9.1"
 rand_core = { version = "0.6.4", features = ["getrandom"] }
 slh-dsa = "0.0.3"
+signature = "2.2.0"
+k256 = { version = "0.13", features = ["ecdsa"] }
 
 [[bench]]
 name = "ml_dsa_bench"
@@ -15,6 +17,10 @@ harness = false
 
 [[bench]]
 name = "slh_dsa_bench"
+harness = false
+
+[[bench]]
+name = "ec_dsa_bench"
 harness = false
 
 [dev-dependencies]
