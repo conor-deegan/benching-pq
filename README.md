@@ -14,7 +14,7 @@
 
 | Variant | Pub Key (bytes) | Sig (bytes) |
 |---------|-----------------|-------------|
-| ECDSA | 33 | 64 |
+| ECDSA | 33 (compressed) | 64 |
 | ML-DSA-44 | 1312 (39.8x ECDSA) | 2420 (37.8x ECDSA) |
 | ML-DSA-65 | 1952 (59.2x ECDSA) | 3309 (51.7x ECDSA) |
 | ML-DSA-87 | 2592 (78.5x ECDSA) | 4627 (72.3x ECDSA) |
