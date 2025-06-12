@@ -1,6 +1,7 @@
-use criterion::{black_box, criterion_group, criterion_main, Criterion};
-use k256::{
-    ecdsa::{SigningKey, VerifyingKey, signature::{Signer, Verifier}, Signature},
+use criterion::{Criterion, black_box, criterion_group, criterion_main};
+use k256::ecdsa::{
+    Signature, SigningKey, VerifyingKey,
+    signature::{Signer, Verifier},
 };
 use rand_core::OsRng;
 
@@ -31,9 +32,7 @@ fn bench_ec_dsa(c: &mut Criterion) {
 
     group.bench_function("verify", |b| {
         let sig: Signature = sk.sign(msg);
-        b.iter(|| {
-            black_box(vk.verify(msg, &sig))
-        })
+        b.iter(|| black_box(vk.verify(msg, &sig)))
     });
 
     group.finish();

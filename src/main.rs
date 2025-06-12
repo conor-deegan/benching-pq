@@ -1,3 +1,5 @@
+mod size_comparison;
+
 fn main() {
-    println!("Benching PQ...");
+    size_comparison::print_size_comparison();
 }

@@ -1,5 +1,8 @@
-use criterion::{black_box, criterion_group, criterion_main, Criterion};
-use ml_dsa::{MlDsa65, MlDsa44, MlDsa87, KeyGen, signature::{Signer, Verifier}};
+use criterion::{Criterion, black_box, criterion_group, criterion_main};
+use ml_dsa::{
+    KeyGen, MlDsa44, MlDsa65, MlDsa87,
+    signature::{Signer, Verifier},
+};
 use rand_core::OsRng;
 
 macro_rules! bench_ml_dsa_variant {
@@ -19,17 +22,11 @@ macro_rules! bench_ml_dsa_variant {
             })
         });
 
-        group.bench_function("sign", |b| {
-            b.iter(|| {
-                black_box(kp.signing_key().sign(msg))
-            })
-        });
+        group.bench_function("sign", |b| b.iter(|| black_box(kp.signing_key().sign(msg))));
 
         group.bench_function("verify", |b| {
             let sig = kp.signing_key().sign(msg);
-            b.iter(|| {
-                black_box(kp.verifying_key().verify(msg, &sig))
-            })
+            b.iter(|| black_box(kp.verifying_key().verify(msg, &sig)))
         });
 
         group.finish();
@@ -43,4 +40,4 @@ fn bench_ml_dsa(c: &mut Criterion) {
 }
 
 criterion_group!(benches, bench_ml_dsa);
-criterion_main!(benches); 
+criterion_main!(benches);

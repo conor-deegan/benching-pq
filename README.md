@@ -10,6 +10,29 @@
 - **Rust**: 1.86.0 (05f9846f8 2025-03-31)
 - **Cargo**: 1.86.0 (adf9b6ad1 2025-02-28)
 
+## Size Comparison
+
+| Variant | Pub Key (bytes) | Sig (bytes) |
+|---------|-----------------|-------------|
+| ECDSA | 33 | 64 |
+| ML-DSA-44 | 1312 (39.8x ECDSA) | 2420 (37.8x ECDSA) |
+| ML-DSA-65 | 1952 (59.2x ECDSA) | 3309 (51.7x ECDSA) |
+| ML-DSA-87 | 2592 (78.5x ECDSA) | 4627 (72.3x ECDSA) |
+| SHA2-128s | 32 (1.0x ECDSA) | 7856 (122.8x ECDSA) |
+| SHA2-128f | 32 (1.0x ECDSA) | 17088 (267.0x ECDSA) |
+| SHA2-192s | 48 (1.5x ECDSA) | 16224 (253.5x ECDSA) |
+| SHA2-192f | 48 (1.5x ECDSA) | 35664 (557.2x ECDSA) |
+| SHA2-256s | 64 (1.9x ECDSA) | 29792 (465.5x ECDSA) |
+| SHA2-256f | 64 (1.9x ECDSA) | 49856 (779.0x ECDSA) |
+
+## Running the Size Comparison
+
+To run the size comparison:
+
+```bash
+cargo run
+```
+
 ## Benchmark Results
 
 ### ECDSA - secp256k1 (K-256) (Baseline)

@@ -1,8 +1,10 @@
-use criterion::{black_box, criterion_group, criterion_main, Criterion};
+use criterion::{Criterion, black_box, criterion_group, criterion_main};
 use ml_dsa::signature::{Keypair, SignerMut};
-use slh_dsa::{Sha2_128s, Sha2_128f, Sha2_192s, Sha2_192f, Sha2_256s, Sha2_256f, SigningKey, VerifyingKey};
-use slh_dsa::signature::Verifier;
 use rand_core::OsRng;
+use slh_dsa::signature::Verifier;
+use slh_dsa::{
+    Sha2_128f, Sha2_128s, Sha2_192f, Sha2_192s, Sha2_256f, Sha2_256s, SigningKey, VerifyingKey,
+};
 
 macro_rules! bench_slh_dsa_variant {
     ($c:expr, $name:expr, $variant:ty) => {
@@ -23,19 +25,13 @@ macro_rules! bench_slh_dsa_variant {
         let mut sk = SigningKey::<$variant>::new(&mut rng);
         let vk = sk.verifying_key();
 
-        group.bench_function("sign", |b| {
-            b.iter(|| {
-                black_box(sk.sign(msg))
-            })
-        });
+        group.bench_function("sign", |b| b.iter(|| black_box(sk.sign(msg))));
 
         group.bench_function("verify", |b| {
             let sig = sk.sign(msg);
             let vk_bytes = vk.to_bytes();
             let vk_deserialized = VerifyingKey::<$variant>::try_from(&vk_bytes[..]).unwrap();
-            b.iter(|| {
-                black_box(vk_deserialized.verify(msg, &sig))
-            })
+            b.iter(|| black_box(vk_deserialized.verify(msg, &sig)))
         });
 
         group.finish();
@@ -52,4 +48,4 @@ fn bench_slh_dsa(c: &mut Criterion) {
 }
 
 criterion_group!(benches, bench_slh_dsa);
-criterion_main!(benches); 
+criterion_main!(benches);
