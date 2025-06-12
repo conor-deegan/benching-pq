@@ -25,6 +25,13 @@
 | SHA2-256s | 64 (1.9x ECDSA) | 29792 (465.5x ECDSA) |
 | SHA2-256f | 64 (1.9x ECDSA) | 49856 (779.0x ECDSA) |
 
+### Summary
+
+- ML-DSA balances a more moderate increase in public-key size and signature size compared to ECDSA.
+- SLH-DSA keeps public keys nice and small but at the cost of very large signatures (10–50 KB).
+
+Choice will largely depend on the application and constraints.
+
 ## Running the Size Comparison
 
 To run the size comparison:
